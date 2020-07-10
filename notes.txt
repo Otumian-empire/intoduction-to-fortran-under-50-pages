@@ -1,0 +1,101 @@
+Basics
+
+! - starts a comment
+
+Every code must have a program name and end program name, as in 
+
+program helloworld
+! code here
+
+end helloworld
+
+implicit none - checks if all variables are declared
+
+variable declaration
+type :: var
+
+as in , real :: x, y and integer :: age, numberOfDays
+
+print *, objects
+read *, objects
+
+we can do,
+program simplecode
+! this program demonstrate what we have seen so far
+
+integer :: a, b, c
+
+print *, "Enter a:"
+read *, a
+
+print *, "Enter a:"
+read *, a
+
+c = a+b
+
+print *, c
+
+end program simplecode
+
+It is considered that every file must have one program
+
+character data type.
+this is most similar to c
+in c, char name[10];
+in fortran, character :: name*10
+
+
+Making decisions
+
+var = val, is a simple assigment statement
+
+operators: +, -, *, /, **, ()
+
+intrinsic functions are builtin functions such as sin, cos, exp, tan, atan, llog, etc
+
+==, checks for equality, like C
+
+if statement follows the patterns
+if (condition) then code end if
+
+program sampleIf
+integer :: age
+read *, age
+if (age == 10) then
+    print*, 'you are ten'
+end if
+end program sampleIf
+
+A good program:
+- Uses comments appropriately to explain what is happening.
+- Uses indentation to make the program easier to read.
+- Uses meaningful variable names.
+- Uses sensible prompts to let the user know what is going on.
+- Uses implicit none at the start of every program.
+- Is efficient!
+
+if then, else if then and else and end if
+
+program sampleIfElse
+implicit none
+integer :: num
+print*, 'enter num'
+read *, num
+
+if (num == 10) then
+    num = num - 2
+else if (num == 9) then
+    num = num - 3
+else
+    num = 0
+end if
+print *, num
+
+end program sampleIf
+
+relation operators: ==, /=, <, >, <=, >=
+logical operators: .and., .or.
+
+stop - literally stops the program
+
+if (condition) stop
