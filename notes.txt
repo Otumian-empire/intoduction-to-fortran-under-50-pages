@@ -1,4 +1,4 @@
-Basics
+1 - Basics
 
 ! - starts a comment
 
@@ -45,13 +45,14 @@ in c, char name[10];
 in fortran, character :: name*10
 
 
-Making decisions
+2 - Making Decisions
 
 var = val, is a simple assigment statement
 
-operators: +, -, *, /, **, ()
+operators: +, -, *, /, **, (), mod
 
-intrinsic functions are builtin functions such as sin, cos, exp, tan, atan, llog, etc
+intrinsic functions are builtin functions such as sin, cos, exp, tan,
+ atan, log, modetc
 
 ==, checks for equality, like C
 
@@ -99,3 +100,30 @@ logical operators: .and., .or.
 stop - literally stops the program
 
 if (condition) stop
+
+there is a difference in a real zero and an integer zero,
+as such you should find the absolute value of the real of interest,
+check if its less than some arbituary number, say, 0.000001
+
+
+3 - Loops
+
+integer division does not result in a real result
+
+do-loop allows reexecution of codes, just like a for-loop in c
+
+do-loop is of the form
+do var = begin, end, step
+    code
+end do
+
+The do loop is start and end inclusive unlike c where by, 0 to 20 is 0 to 19
+
+Nested loops
+do var_i=a,b,c
+    do var_j=d,e,f
+        ! code
+    end do
+end do
+
+

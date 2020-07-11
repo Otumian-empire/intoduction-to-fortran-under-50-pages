@@ -6,7 +6,8 @@ I am doing it for the fun of it. I noticed that the compile time was shorter com
 ## Source guide
 [fortrantutorial][fortrantutorial]
 
-
+## Note
+I guess this tutorial was is kind of outdated but did most of the work.
 
 
 #
