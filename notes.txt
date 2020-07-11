@@ -175,6 +175,86 @@ type (kind=newDataType) :: var_name
 One other way is to append the new type as val_newDataType as in 1.34_newDataType
 
 
+5 Arrays and Formatted I/O
+
+An array is a list that we can access through a subscript
+we just size of an array when we declare it.
+As in, real, dimension(100) :: arr, creates an array if size 100
+
+subscripting, arr(index), where the array index starts from 1, unlike c, which is 0
+print *, array, prints the content of the array
+
+program arrays
+    implicit none
+
+    ! declare an array of size, 10
+    integer, dimension(10) :: intArray
+    
+    ! populate the array, using a loop
+    integer :: i
+    do i = 1, 10
+        intArray(i) = i
+    end do
+    
+    print *, intArray
+    
+end program
+
+To make the code above maintainable we can create a simple variable to hold the size of the 
+array. This a parameter.
+
+integer, parameter :: arraySize = 10
+integer, dimension(arraySize) :: intArray
+
+arraySize could even be passed in to the loop
+
+Arrays can be created run time as wells, where by the size of the array is create when the
+ user passes the size
+ 
+make the arrayVar allocatable, here the dimension is set to, dimension(:)
+allocate the size of the array when taken from the user
+deallocate the array
+
+program runTimeArray
+    implicit none
+    
+    ! declare the array, allocatable with  dimension(:)
+    integer, allocatable, dimension(:) :: arr
+    
+    integer :: arraySize
+    
+    ! loop var
+    integer :: i
+    
+    ! read/determin array size
+    print *, 'enter array size'
+    read *, arraySize
+    
+    ! allocate memory of arraySize to array
+    allocate(arr(arraySize))
+    
+    ! populate the array
+   
+    do i = 1, arraySize
+        arr(i) = i ** 2
+    end do
+    
+    ! print arr
+    print*, arr
+    
+    ! release memory
+    deallocate(arr)
+    
+end program
+
+operations can easily be done on every arrays element by using simple arithmetic operators.
+
+
+
+
+
+
+
 
 
 
