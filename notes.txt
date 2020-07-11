@@ -127,3 +127,55 @@ do var_i=a,b,c
 end do
 
 
+4 Using Files and Extending Precision
+
+use open to open a file. Using takes two args, a positional arg and kwarg.
+these are unit/input device, an int value - something the a device/object and file name
+as file=fileName
+
+read *, someVar, read data into someVar but has to be modified to read from file.
+read(device, *) someVars , there is no comma after the closing bracket
+
+program readIntFromFile
+    ! create a file, data.txt and enter a number into it, save it
+    
+    implicit none
+    
+    integer :: i
+    open(1, file='data.txt')
+    read(1, *) i
+    
+    print*, i
+    
+end program readCharFromFile
+
+open links the file to read with an input device numbered 1
+write behave like read, so just in the above code, chnage read to write to write to file
+
+program writeToFile
+    ! create a file, data.txt and enter a number into it, save it
+    
+    implicit none
+    
+    integer :: i
+    open(1, file='data.txt')
+    read(1, *) i
+    
+    print*, i
+    
+end program writeToFile
+
+By default the precisions of integer and real is 6dp but can be extended
+This is almost the same concept around typdef - creating a new data type
+type, parameter :: typeKind=selected_real_kind(p=val)
+
+To make a type of the new data type, 
+type (kind=newDataType) :: var_name
+
+One other way is to append the new type as val_newDataType as in 1.34_newDataType
+
+
+
+
+
+
