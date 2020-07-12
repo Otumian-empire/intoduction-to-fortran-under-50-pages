@@ -254,3 +254,75 @@ integer, dimension(2, 2) :: twoDimenArr creates a 2D with with 4 components that
 twoDimenArr(1,1) indexing
 
 
+6 Subroutines and Functions
+
+A subroutine/function here is the basic idea of that in C.
+Instead of program programNAme end program, for subroutine, we do, subroutine subroutineName end subroutine
+We do, call subroutineName to call subroutine.
+
+Consider the program bellow.
+
+program subroutineProgram
+    implicit none
+    
+    call sayHello()
+    
+end program
+
+subroutine sayHello( )
+    print *, 'Hello'
+end subroutine
+
+Some notes
+- several subroutines may be created in a single program.
+- ideally, a subroutine should do a specific task – reflected by its name.
+- all the variables in subroutines, apart from the ones passed as arguments, are 'hidden' from the main program.
+- it is very easy to forget to declare variables in subroutines, thus use implicit none.
+- all the variables in the subroutine must be declared.
+- the positioning of the arguments is important. The subroutine has
+no knowledge of what the variables are called in the main program.
+- it is vital that the
+arguments agree both in position and type. 
+
+A function is just like a sub routine but returns a value
+
+function rads(degrees)
+    implicit none
+    integer, parameter :: ikind=selected_real_kind(p=15)
+    
+    ! returns radians
+    real (kind=ikind) :: pi, degrees, rads
+    
+    pi= 4.0_ikind * atan(1.0_ikind)
+    
+    rads=(degrees*pi/180.0_ikind)
+    
+end function rads
+
+program func
+    !demonstrates use of user defined functions
+    implicit none
+    
+    integer, parameter :: ikind=selected_real_kind(p=15)
+    real (kind=ikind):: deg, rads
+    
+    print *, 'Enter an angle in degrees'
+    read *, deg
+    
+    write(*,10) 'sin = ',sin(rads(deg))
+    write(*,10) 'tan = ',tan(rads(deg))
+    write(*,10) 'cos = ',cos(rads(deg))
+    
+    10 format(a,f10.8)
+    
+end program func
+
+Some notes
+- everything about subroutines applies to functions
+- the function rads converts the value of the argument, degrees, to radians.
+- declare the data type of the function both in the main program, and in
+the function itself as if it were a variable.
+- functions return one value. This value, when calculated, is assigned to the name of 
+the function as if it were a variable – rads = (degrees *pi / 180.0_ikind)
+
+
