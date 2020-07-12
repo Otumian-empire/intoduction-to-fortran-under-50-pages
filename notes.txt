@@ -247,15 +247,10 @@ program runTimeArray
     
 end program
 
-operations can easily be done on every arrays element by using simple arithmetic operators.
+operations can easily be done on every arrays element by using simple arithmetic operators
+and intrinsic functions. More in Exercise 5.3
 
-
-
-
-
-
-
-
-
+integer, dimension(2, 2) :: twoDimenArr creates a 2D with with 4 components that supports
+twoDimenArr(1,1) indexing
 
 
